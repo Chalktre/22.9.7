@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            position: relative;
+        }
+        .input {
+            display: inline-block;
+            border: 1px solid red;
+            border-radius: 3px;
+            
+        }
+
+        .btn {
+            display: inline-block;
+            position: absolute;
+            top: 10px;
+            left: 180px;
+        }
+
+        .cmt ul li {
+            list-style: none;
+            background-color: blue;
+            color: white;
+            width: 300px;
+            margin: 10px;
+            padding-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <textarea class="input"></textarea>
+        <button class="btn">submit</button>    
+    </div>
+    <div class="cmt">
+        <ul>
+        </ul>
+    </div>
+
+    <script>
+        var btn =document.querySelector('.btn')
+        console.log(btn);
+        var ul = document.querySelector('.cmt').firstElementChild
+        console.log(ul);
+
+        btn.onclick = function() {
+            if (document.querySelector('.input').value) {
+            
+                var tmp = document.querySelector('.input').value;
+                console.log(tmp);
+                //创建一个tmp存放输入框中的内容
+                var li = document.createElement('li')
+                //创造一个'li'节点
+                li.innerHTML = tmp;
+                console.log(li);
+                //将tmp中的内容存入li
+                ul.insertBefore(li, ul.firstElementChild)
+                //将li插入ul
+                document.querySelector('.input').value = '';
+                //清空输入框中的值
+
+            }
+        }
+    </script>
+</body>
+</html>
